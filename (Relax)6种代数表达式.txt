@@ -1,0 +1,18 @@
+(a)
+(1) π model (Laptop) - π L1.model (σ L1.price > L2.price ((ρ L1 (π model,price (Laptop))) ⨯ (ρ L2 (π model,price (Laptop)))))
+
+(2) R3= ρ L1 (π model,price (Laptop)) ∪ ρ L2 (π model,price (Laptop))
+π model (R3 - π L1.model,L1.price (R3 ⨝ (price>L3.price) (ρ L3 (R3))))
+
+
+(b)
+(1) π screen (σ Amt > 1 (γ screen;count(*)→Amt (Laptop)))
+
+(2) π L1.screen (ρ L1 (Laptop) ⨝ (L1.screen=L2.screen ∧ L1.model≠L2.model) ρ L2 (Laptop))
+
+
+(c)
+(1) π maker (σ mAmt>1 (γ maker;count(*)→mAmt (γ maker,Ptype;count(*)→Amt (Product ⨝ (ρ Ptype ← type (Printer))))))
+
+(2) R = π maker,Ptype (Product ⨝ (ρ Ptype ← type (Printer)))
+π P1.maker (ρ P1 R ⨝ (P1.maker=P2.maker∧P1.Ptype≠P2.Ptype) ρ P2 R)
